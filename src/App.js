@@ -1,11 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-
-import React, {useEffect, useState} from 'react';
-
+import React, { useEffect, useState } from 'react';
+import MonthlyScanPage from './Pages/monthlyScan'; // Import the MonthlyScanPage component
 
 function getMonthlyScan(year, month) {
-
   let result = fetch(`http://localhost:3001/monthlyScan/${year}/${month}`)
     .then(data => data.json())
   
@@ -13,44 +9,23 @@ function getMonthlyScan(year, month) {
 }
 
 function App() {
-  const [monthlyScan, setMonthlyScan] = useState([]);
+  // const [monthlyScan, setMonthlyScan] = useState([]);
 
-  const fetchMonthlyScan =  () => {
-    fetch(`http://localhost:3001/monthlyScan/2023/10`)
-      .then(data => {return data.json()})
-      .then(data => {
-        console.log(Object.entries(data));
-        setMonthlyScan(Object.entries(data));
-      })
-  }
-  console.log(monthlyScan);
+  // const fetchMonthlyScan =  () => {
+  //   fetch(`http://localhost:3001/monthlyScan/2023/10`)
+  //     .then(data => {return data.json()})
+  //     .then(data => {
+  //       // console.log(Object.entries(data));
+  //       setMonthlyScan(Object.entries(data));
+  //     })
+  // }
 
-  useEffect(() => {
-    fetchMonthlyScan();
-  }, [])
+  // useEffect(() => {
+  //   fetchMonthlyScan();
+  // }, []); // Add an empty dependency array to the useEffect so it only runs once on component mount
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <ul>
-          {monthlyScan.map((item, index) => {
-            return <li key={index}>{item[0]}: {item[1]}</li>
-          })}
-        </ul>
-      </header>
-    </div>
+    <MonthlyScanPage /> // Use the MonthlyScanPage component and pass the monthlyScan state as a prop
   );
 }
 

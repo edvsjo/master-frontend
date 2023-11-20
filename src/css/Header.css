@@ -1,0 +1,38 @@
+/* FILEPATH: /uio/hume/student-u17/edvardds/M-drive/pc/Downloads/master-frontend/src/css/Header.css */
+
+/* Set the height and background color of the header */
+header {
+    height: 80px;
+    background-color: #333;
+}
+
+/* Center the logo and navigation links */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+/* Style the logo */
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Style the navigation links */
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    color: #000;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
